@@ -1,5 +1,6 @@
 "use client"
 
+import { config } from "@/lib/config"
 import { Topic } from "@/types/types"
 import { Box, Button, FormControlLabel, Switch, TextField } from "@mui/material"
 import axios from "axios"
@@ -19,7 +20,7 @@ const router = useRouter()
 
 const onSubmit = async () => {
   try{
-    const res = await axios.put(`http://localhost:3000/api/topics/${_id}`,{
+    const res = await axios.put(`${config.NEXT_URL|| config.NEXT_PUBLIC_URL}/api/topics/${_id}`,{
       newTitle,
       newDescription,
       __v:__v + 1

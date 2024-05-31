@@ -1,4 +1,5 @@
 "use client"
+import { config } from "@/lib/config";
 import { Box, Button, TextField } from "@mui/material";
 import axios from "axios";
 import { useRouter } from "next/navigation";
@@ -19,7 +20,7 @@ const TopicCreate = () => {
     }
 
     try {
-      const res = await axios.post('http://localhost:3000/api/topics', {
+      const res = await axios.post(`${config.NEXT_URL|| config.NEXT_PUBLIC_URL}/api/topics`, {
         title,description
       })
 

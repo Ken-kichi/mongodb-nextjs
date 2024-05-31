@@ -1,4 +1,5 @@
 import DeleteButton from "@/components/DeleteButton"
+import { config } from "@/lib/config"
 import { Topic } from "@/types/types"
 import { Button, Card, CardActions, CardContent } from '@mui/material'
 import Typography from '@mui/material/Typography'
@@ -6,7 +7,7 @@ import axios from "axios"
 
 const getTopics = async () => {
   try {
-    const res = await axios.get("http://localhost:3000/api/topics")
+    const res = await axios.get(`${config.NEXT_URL|| config.NEXT_PUBLIC_URL}/api/topics`)
     if(res.status !== 200){
     throw new Error("トピックスを取得できませんでした")
   }

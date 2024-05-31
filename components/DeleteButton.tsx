@@ -1,4 +1,5 @@
 "use client"
+import { config } from '@/lib/config'
 import { TopicId } from '@/types/types'
 import { Button } from '@mui/material'
 import axios from 'axios'
@@ -10,7 +11,7 @@ const DeleteButton = ({_id}: TopicId) => {
 const deleteTopic = async () => {
     const confirmed = confirm('削除しますか？')
     if(confirmed) {
-       const res = await axios(`http://localhost:3000/api/topics/${_id}`, {
+       const res = await axios(`${config.NEXT_URL|| config.NEXT_PUBLIC_URL}/api/topics/${_id}`, {
             method: 'DELETE'
         })
 

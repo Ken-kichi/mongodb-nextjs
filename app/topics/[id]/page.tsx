@@ -1,9 +1,10 @@
 import TopicContents from "@/components/TopicContents"
+import { config } from "@/lib/config"
 import axios from "axios"
 
 const getTopicById = async (id:string) => {
   try {
-    const res = await axios.get(`http://localhost:3000/api/topics/${id}`)
+    const res = await axios.get(`${config.NEXT_URL|| config.NEXT_PUBLIC_URL}/api/topics/${id}`)
     if(res.status === 200){
       const data = res.data
       return data
