@@ -14,6 +14,7 @@ const getTopics = async () => {
   return res.data
   } catch (error) {
     console.log("トピックを取得できませんでした: ",error)
+    return { topics: [] }
   }
 }
 
